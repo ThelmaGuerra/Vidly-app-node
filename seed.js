@@ -39,7 +39,6 @@ const data = [
 ];
 
 async function seed() {
-  const uri = process.env.MONGODB_URI;
   await mongoose.connect(config.get("db"));
 
   await Movie.deleteMany({});
