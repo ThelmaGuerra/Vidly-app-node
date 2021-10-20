@@ -40,10 +40,7 @@ const data = [
 
 async function seed() {
   const uri = process.env.MONGODB_URI;
-  await mongoose
-    .connect(uri, { useUnifiedTopology: true, useNewUrlParser: true })
-    .then(() => console.log("MongoDB connected!"))
-    .catch((err) => console.log("Error:- " + err));
+  await mongoose.connect(config.get("db"));
 
   await Movie.deleteMany({});
   await Genre.deleteMany({});
